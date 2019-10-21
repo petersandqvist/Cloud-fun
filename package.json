@@ -1,0 +1,24 @@
+{
+  "name": "cloud-fun",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "dependencies": {
+    "@google-cloud/storage": "^3.5.0",
+    "express": "^4.17.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/petersandqvist/Cloud-fun.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/petersandqvist/Cloud-fun/issues"
+  },
+  "homepage": "https://github.com/petersandqvist/Cloud-fun#readme"
+}
