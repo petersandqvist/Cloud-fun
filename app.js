@@ -4,29 +4,29 @@ app.enable('trust proxy');
 const { Datastore } = require('@google-cloud/datastore');
 const datastore = new Datastore();
 
-const getCostumers = () => {
+const getCustomers = () => {
   const query = datastore
-    .createQuery('costumer')
-    .order('firstName', { descending: true })
+    .createQuery('Customer')
+    .order('Firstname', { descending: true })
     .limit(10);
 
   return datastore.runQuery(query);
 };
 
-app.get('/getCostumers', async (req, res, next) => {
+app.get('/getCustomers', async (req, res, next) => {
   try {
-    const [entities] = await getCostumers();
+    const [entities] = await getCustomers();
     res.json(entities);
   } catch (error) {
     next(error);
   }
 });
 
-app.get('/getCostumer', async (req, res, next) => {
+app.get('/getCustomer', async (req, res, next) => {
   //get all costumers id
   if (req.query.id === '' || req.query.id == 'all') {
     try {
-      const [entities] = await getCostumers();
+      const [entities] = await getCustomers();
       const entityKeys = entities.map(entity => entity[datastore.KEY].id);
       res.json({ id: entityKeys });
     } catch (error) {
@@ -36,7 +36,7 @@ app.get('/getCostumer', async (req, res, next) => {
   //get costumer by id
   else {
     try {
-      const [entities] = await getCostumers();
+      const [entities] = await getCustomers();
       const entity = entities.filter(
         entity => entity[datastore.KEY].id == req.query.id
       );
