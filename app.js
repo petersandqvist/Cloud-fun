@@ -47,7 +47,7 @@ app.get('/getCustomer', async (req, res, next) => {
   //get costumer by id
   else {
     try {
-      const [entities] = await getCustomerByID(customerID);
+      const [entities] = await getCustomerByID(customer);
       res.json(entities[0]);
     } catch (error) {
       next(error);
